@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ஸ்ரீ ருத்ரம் | Sri Rudram — Complete</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Serif+Tamil:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-deep:   #080612;
+      --bg-mid:    #110D22;
+      --bg-card:   #1A1430;
+      --bg-card2:  #1F1838;
+      --saffron:   #E8852A;
+      --gold:      #D4A843;
+      --copper:    #C47B3A;
+      --rose:      #D45B6A;
+      --teal:      #3DBDAA;
+      --indigo:    #7B6FD4;
+      --ash:       #F0EDE8;
+      --muted:     #9B96B0;
+      --dim:       rgba(155,150,176,0.5);
+      --glow:      rgba(232,133,42,0.2);
+      --glow-soft: rgba(212,168,67,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg-deep);
+      color: var(--ash);
+      font-family: 'Noto Serif', Georgia, serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Stars */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.35) 0%, transparent 100%),
+        radial-gradient(1px 1px at 55% 12%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 78% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
+        radial-gradient(1px 1px at 38% 78%, rgba(255,255,255,0.2) 0%, transparent 100%),
+        radial-gradient(1px 1px at 8%  68%, rgba(255,255,255,0.25) 0%, transparent 100%),
+        radial-gradient(1px 1px at 92% 38%, rgba(255,255,255,0.18) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 48% 48%, rgba(212,168,67,0.12) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 88%, rgba(255,255,255,0.15) 0%, transparent 100%),
+        radial-gradient(1px 1px at 25% 55%, rgba(255,255,255,0.2) 0%, transparent 100%);
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative; z-index: 1;
+      text-align: center;
+      padding: 2.5rem 1.5rem 1.5rem;
+      border-bottom: 1px solid rgba(212,168,67,0.12);
+      background: linear-gradient(180deg, rgba(46,34,80,0.55) 0%, transparent 100%);
+    }
+    .trishul {
+      font-size: 3.2rem; display: block; margin-bottom: 0.4rem;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 18px var(--saffron));
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    header h1 {
+      font-family: 'Noto Serif Tamil','Noto Serif',serif;
+      font-size: clamp(1.7rem,5vw,2.8rem); font-weight: 700;
+      background: linear-gradient(135deg, var(--gold), var(--saffron), var(--gold));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      letter-spacing: 0.04em; line-height: 1.2;
+    }
+    header .subtitle { font-family:'Noto Serif Tamil',serif; color:var(--muted); font-size:0.88rem; margin-top:0.4rem; letter-spacing:0.06em; }
+    header .source   { color:var(--copper); font-size:0.8rem; margin-top:0.3rem; font-style:italic; }
+
+    /* ── SECTION NAV ── */
+    .section-nav {
+      position: relative; z-index: 2;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+      padding: 1.2rem 1rem 0.8rem;
+      background: rgba(8,6,18,0.6);
+      border-bottom: 1px solid rgba(212,168,67,0.1);
+    }
+    .snav-btn {
+      background: var(--bg-card); border: 1px solid rgba(212,168,67,0.18);
+      color: var(--muted); padding: 0.45rem 1.1rem; border-radius: 999px;
+      cursor: pointer; font-family:'Noto Serif Tamil',serif; font-size: 0.82rem;
+      transition: all 0.22s; white-space: nowrap;
+    }
+    .snav-btn:hover { border-color:var(--gold); color:var(--gold); }
+    .snav-btn.active {
+      color: #fff; font-weight: 600; border-color: transparent;
+      box-shadow: 0 0 16px var(--glow);
+    }
+    .snav-btn[data-sec="namakam"].active    { background: linear-gradient(135deg,#E8852A,#C47B3A); }
+    .snav-btn[data-sec="chamakam"].active   { background: linear-gradient(135deg,#C47B3A,#9B5020); }
+    .snav-btn[data-sec="maha_mrityunjaya"].active { background: linear-gradient(135deg,#7B6FD4,#5B50A0); }
+    .snav-btn[data-sec="shata_rudriya"].active    { background: linear-gradient(135deg,#3DBDAA,#2A8A7B); }
+    .snav-btn[data-sec="rudra_ashtadhyayi"].active{ background: linear-gradient(135deg,#D45B6A,#A03045); }
+    .snav-btn[data-sec="rudra_hierarchy"].active  { background: linear-gradient(135deg,#888,#555); }
+
+    /* ── MAIN ── */
+    main { max-width: 860px; margin: 0 auto; padding: 0 1rem 5rem; position:relative; z-index:1; }
+
+    /* ── HIERARCHY PANEL ── */
+    .hierarchy-panel { padding-top: 1.5rem; }
+    .hier-title {
+      font-family:'Noto Serif Tamil',serif;
+      font-size: clamp(1rem,2.5vw,1.3rem); font-weight:700;
+      background: linear-gradient(135deg,var(--gold),var(--saffron));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+      text-align:center; margin-bottom:0.5rem;
+    }
+    .hier-subtitle { text-align:center; font-size:0.85rem; color:var(--muted); margin-bottom:1.8rem; font-style:italic; }
+    .tier-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1rem; }
+    .tier-card {
+      background:var(--bg-card); border:1px solid rgba(212,168,67,0.18);
+      border-radius:1rem; padding:1.25rem 1.25rem 1rem; position:relative;
+      transition: box-shadow 0.2s;
+    }
+    .tier-card:hover { box-shadow:0 4px 24px rgba(0,0,0,0.4); }
+    .tier-card .tier-num {
+      position:absolute; top:-12px; left:1rem;
+      font-size:0.68rem; font-weight:700; letter-spacing:0.1em;
+      padding:0.15rem 0.8rem; border-radius:999px; color:#fff;
+    }
+    .tier-card h3 { font-size:1rem; font-weight:700; margin-bottom:0.4rem; margin-top:0.3rem; }
+    .tier-card .tier-sa { font-size:0.82rem; color:var(--muted); font-style:italic; margin-bottom:0.6rem; }
+    .tier-card p { font-size:0.82rem; color:var(--muted); line-height:1.7; }
+    .tier-card .count-badge {
+      display:inline-block; margin-top:0.7rem;
+      background:rgba(212,168,67,0.1); border:1px solid rgba(212,168,67,0.2);
+      font-size:0.72rem; color:var(--gold); padding:0.2rem 0.75rem; border-radius:999px;
+    }
+    .t1 .tier-num { background:linear-gradient(135deg,#888,#555); }
+    .t2 .tier-num { background:linear-gradient(135deg,#C47B3A,#9B5020); }
+    .t3 .tier-num { background:linear-gradient(135deg,#E8852A,#C47B3A); }
+    .t4 .tier-num { background:linear-gradient(135deg,#D4A843,#C47B3A); }
+    .t5 .tier-num { background:linear-gradient(135deg,#7B6FD4,#D4A843); }
+    .hier-note {
+      margin-top:1.5rem; padding:1rem 1.25rem; border-radius:0.75rem;
+      background:rgba(212,168,67,0.05); border:1px solid rgba(212,168,67,0.15);
+      font-size:0.82rem; color:var(--muted); line-height:1.8; text-align:center;
+    }
+    .hier-note strong { color:var(--gold); }
+
+    /* ── SHLOKA VIEWER ── */
+    .viewer-wrap { padding-top:1.5rem; }
+    .anuvaka-label {
+      text-align:center; font-family:'Noto Serif Tamil',serif;
+      font-size:0.75rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.4rem;
+    }
+    .progress-text { text-align:center; font-size:0.88rem; color:var(--copper); margin-bottom:1.4rem; font-style:italic; }
+
+    .shloka-card {
+      background:var(--bg-card); border:1px solid rgba(212,168,67,0.2);
+      border-radius:1.25rem; padding:2rem 2rem 1.75rem; position:relative;
+      box-shadow:0 4px 40px rgba(0,0,0,0.5), inset 0 0 60px var(--glow-soft);
+      animation: cardIn 0.38s ease both;
+    }
+    @keyframes cardIn { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+    .shloka-card::before {
+      content:''; position:absolute; inset:-1px; border-radius:1.3rem;
+      background:linear-gradient(135deg,rgba(212,168,67,0.22),transparent 50%,rgba(232,133,42,0.12));
+      pointer-events:none; z-index:0;
+    }
+    .shloka-number-badge {
+      position:absolute; top:-13px; left:50%; transform:translateX(-50%);
+      color:#fff; font-size:0.72rem; font-weight:700; padding:0.18rem 1rem;
+      border-radius:999px; letter-spacing:0.08em; white-space:nowrap;
+    }
+    .badge-namakam    { background:linear-gradient(135deg,var(--saffron),var(--copper)); }
+    .badge-chamakam   { background:linear-gradient(135deg,var(--copper),#9B5020); }
+    .badge-maha       { background:linear-gradient(135deg,var(--indigo),#5B50A0); }
+    .badge-shata      { background:linear-gradient(135deg,var(--teal),#2A8A7B); }
+    .badge-ashta      { background:linear-gradient(135deg,var(--rose),#A03045); }
+
+    .shloka-title {
+      font-family:'Noto Serif Tamil',serif; font-size:0.75rem; color:var(--gold);
+      text-align:center; letter-spacing:0.12em; text-transform:uppercase;
+      margin-bottom:1.2rem; margin-top:0.5rem; position:relative; z-index:1;
+    }
+    .shloka-text {
+      font-family:'Noto Serif Devanagari','Noto Serif Tamil','Noto Serif',serif;
+      font-size:clamp(1rem,2.5vw,1.2rem); line-height:2.1; color:var(--ash);
+      text-align:center; white-space:pre-line; position:relative; z-index:1;
+    }
+    .meaning-section {
+      margin-top:1.4rem; padding-top:1.2rem;
+      border-top:1px solid rgba(212,168,67,0.12); position:relative; z-index:1;
+    }
+    .meaning-label { font-size:0.7rem; color:var(--gold); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:0.5rem; font-family:'Noto Serif Tamil',serif; }
+    .meaning-text { font-size:0.9rem; color:var(--muted); line-height:1.8; font-style:italic; }
+
+    .card-actions {
+      display:flex; gap:0.7rem; justify-content:center; margin-top:1.4rem;
+      position:relative; z-index:1; flex-wrap:wrap;
+    }
+    .action-btn {
+      background:rgba(255,255,255,0.04); border:1px solid rgba(212,168,67,0.2);
+      color:var(--muted); padding:0.42rem 1rem; border-radius:999px; cursor:pointer;
+      font-size:0.8rem; transition:all 0.2s; display:flex; align-items:center; gap:0.35rem;
+    }
+    .action-btn:hover { border-color:var(--gold); color:var(--gold); background:rgba(212,168,67,0.08); }
+    .action-btn.active { background:rgba(232,133,42,0.15); border-color:var(--saffron); color:var(--saffron); }
+
+    /* ── NAV ── */
+    .nav-area { display:flex; align-items:center; justify-content:space-between; margin-top:1.8rem; gap:1rem; }
+    .nav-btn {
+      background:var(--bg-card); border:1px solid rgba(212,168,67,0.22);
+      color:var(--gold); padding:0.6rem 1.4rem; border-radius:999px; cursor:pointer;
+      font-family:'Noto Serif Tamil',serif; font-size:0.88rem; transition:all 0.22s; white-space:nowrap;
+    }
+    .nav-btn:hover:not(:disabled) { background:linear-gradient(135deg,var(--saffron),var(--copper)); color:#fff; border-color:transparent; box-shadow:0 0 16px var(--glow); }
+    .nav-btn:disabled { opacity:0.3; cursor:default; }
+    .dots-area { display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; flex:1; }
+    .dot {
+      width:20px; height:20px; border-radius:50%;
+      background:rgba(212,168,67,0.1); border:1.5px solid rgba(212,168,67,0.22);
+      cursor:pointer; transition:all 0.2s; position:relative;
+    }
+    .dot::after { content:''; position:absolute; inset:3px; border-radius:50%; background:var(--bg-deep); transition:background 0.2s; }
+    .dot.active { border-color:var(--saffron); box-shadow:0 0 7px var(--glow); }
+    .dot.active::after { background:var(--saffron); }
+    .dot:hover::after { background:rgba(212,168,67,0.45); }
+
+    /* auto-read glow */
+    .auto-reading .shloka-text { animation:subtleGlow 2s ease-in-out infinite; }
+    @keyframes subtleGlow { 0%,100%{text-shadow:none} 50%{text-shadow:0 0 22px rgba(232,133,42,0.38)} }
+
+    /* ── INFO SECTION (Maha Mrityunjaya) ── */
+    .info-panel { padding-top:1.5rem; }
+    .info-card {
+      background:var(--bg-card); border:1px solid rgba(212,168,67,0.18);
+      border-radius:1.25rem; padding:1.75rem 2rem; position:relative;
+      box-shadow:0 4px 30px rgba(0,0,0,0.4);
+    }
+    .info-card::before {
+      content:''; position:absolute; inset:-1px; border-radius:1.3rem;
+      pointer-events:none; z-index:0;
+    }
+    .info-card.purple::before { background:linear-gradient(135deg,rgba(123,111,212,0.2),transparent 60%); }
+    .info-card.teal::before   { background:linear-gradient(135deg,rgba(61,189,170,0.2),transparent 60%); }
+    .info-card.rose::before   { background:linear-gradient(135deg,rgba(212,91,106,0.2),transparent 60%); }
+    .info-header { display:flex; align-items:flex-start; gap:1rem; margin-bottom:1.25rem; position:relative; z-index:1; }
+    .info-icon { font-size:2.5rem; flex-shrink:0; }
+    .info-header h2 { font-family:'Noto Serif Tamil',serif; font-size:clamp(1rem,2.5vw,1.3rem); font-weight:700; }
+    .info-header .info-sa { font-size:0.82rem; color:var(--muted); font-style:italic; margin-top:0.2rem; }
+    .info-header .info-src { font-size:0.75rem; color:var(--copper); margin-top:0.2rem; }
+    .divider { height:1px; background:rgba(212,168,67,0.12); margin:1.1rem 0; position:relative; z-index:1; }
+    .mantra-block {
+      font-family:'Noto Serif Devanagari','Noto Serif',serif;
+      font-size:clamp(1rem,2.5vw,1.2rem); line-height:2.1; color:var(--ash);
+      text-align:center; white-space:pre-line; position:relative; z-index:1;
+    }
+    .meaning-block { font-size:0.88rem; color:var(--muted); line-height:1.8; font-style:italic; position:relative; z-index:1; }
+    .sub-section { margin-top:1.5rem; position:relative; z-index:1; }
+    .sub-section h3 { font-size:0.78rem; color:var(--gold); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:0.8rem; font-family:'Noto Serif Tamil',serif; }
+    .verse-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:0.75rem; }
+    .verse-item { background:rgba(255,255,255,0.03); border:1px solid rgba(212,168,67,0.12); border-radius:0.75rem; padding:0.9rem 1rem; }
+    .verse-item .verse-num { font-size:0.68rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:0.35rem; }
+    .verse-item .verse-text { font-family:'Noto Serif Devanagari',serif; font-size:0.85rem; color:var(--ash); line-height:1.7; }
+    .verse-item .verse-meaning { font-size:0.76rem; color:var(--muted); line-height:1.6; margin-top:0.4rem; font-style:italic; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align:center; padding:2rem 1rem;
+      font-family:'Noto Serif Tamil',serif; font-size:0.78rem; color:var(--dim);
+      border-top:1px solid rgba(212,168,67,0.08); position:relative; z-index:1;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:600px){
+      .shloka-card,.info-card{padding:1.4rem 1.1rem}
+      .nav-btn{padding:0.5rem 0.9rem;font-size:0.8rem}
+      .dot{width:16px;height:16px}
+      .tier-grid{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){
+      .trishul,.auto-reading .shloka-text{animation:none}
+      @keyframes cardIn{from{opacity:1}}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="trishul">𑁍</span>
+  <h1>ஸ்ரீ ருத்ரம் — முழுமையான தொகுப்பு</h1>
+  <p class="subtitle">Sri Rudram — Complete Collection</p>
+  <p class="source">கிருஷ்ண யஜுர் வேதம் · தைத்திரீய சம்ஹிதை | Krishna Yajurveda · Taittirīya Saṃhitā</p>
+</header>
+
+<nav class="section-nav">
+  <button class="snav-btn active" data-sec="namakam"          onclick="switchSection('namakam')">நமகம் (Namakam)</button>
+  <button class="snav-btn"        data-sec="chamakam"         onclick="switchSection('chamakam')">சமகம் (Chamakam)</button>
+  <button class="snav-btn"        data-sec="maha_mrityunjaya" onclick="switchSection('maha_mrityunjaya')">மஹா மிருத்யுஞ்ஜய (Mahā Mṛtyuñjaya)</button>
+  <button class="snav-btn"        data-sec="shata_rudriya"    onclick="switchSection('shata_rudriya')">சதருத்ரீய (Śatarudrīya)</button>
+  <button class="snav-btn"        data-sec="rudra_ashtadhyayi"onclick="switchSection('rudra_ashtadhyayi')">ருத்ர அஷ்டாத்யாயி (Rudra Aṣṭādhyāyī)</button>
+  <button class="snav-btn"        data-sec="rudra_hierarchy"  onclick="switchSection('rudra_hierarchy')">ருத்ர படிகள் (Rudra Hierarchy)</button>
+</nav>
+
+<main id="main-content">
+  <!-- Injected dynamically -->
+</main>
+
+<footer>
+  <p>ஓம் நமஃ சிவாய | Om Namaḥ Śivāya 🙏</p>
+  <p style="margin-top:0.3rem">பக்தியுடன் தயாரிக்கப்பட்டது | Made with devotion</p>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  DATA
+// ═══════════════════════════════════════════════════════
+
+const DATA = {
+
+  namakam: [
+    { title:"நமகம் — அனுவாகம் 1 | Anuvāka 1", badge:"badge-namakam",
+      text:`நமஸ்தே ருத்ர மன்யவ உதோத இஷவே நமஃ ।
+நமஸ்தே அஸ்து தன்வசே பாஹுப்யாம் உத தே நமஃ ॥
+
+யா த இஷுஃ சிவதமா சிவம் பவரு அஸ்யை ।
+சிவாம் கிரிதமாமகாம் உஷோ கிரிதமாம் ॥
+
+யா தே ருத்ர சிவா தனூரகோரா பாபகோசினீ ।
+தயா நஸ்தனுவா சந்தமயா கிரிசன்தாபிசாகசீஹி ॥`,
+      meaning:"O Rudra, salutations to your wrath, and to your arrows — salutations. Salutations to your bow and to both your arms. May your most auspicious arrow be propitious to us. O Lord of mountains, may your most benevolent form, which is not terrible and brings no harm, look upon us with grace." },
+
+    { title:"நமகம் — அனுவாகம் 2 | Anuvāka 2", badge:"badge-namakam",
+      text:`நமோ ஹிரண்யபாஹவே சேனான்யே திசம் ச பதயே நமோ ।
+வ்ருக்ஷேப்யோ ஹரிகேசேப்யஃ பசூனாம் பதயே நமோ நமஃ ॥
+
+சசிபிஸ் தே ஹரோமஹே சோமம் இந்த்ராய பாதவே ।
+சோமம் ருத்ராய சிஷ்டவே நமோ ருத்ராய சிஷ்டவே ॥`,
+      meaning:"Salutations to the golden-armed one, the leader of armies, the lord of all directions. Salutations to the one who dwells in trees with golden-green locks, lord of animals. We offer Soma to Indra for drinking, and Soma to Rudra who is worthy of it — salutations to Rudra who is worthy." },
+
+    { title:"நமகம் — அனுவாகம் 3 | Anuvāka 3", badge:"badge-namakam",
+      text:`நமோ ருத்ரேப்யோ யே ப்ருதிவ்யாம் யே அன்தரிக்ஷே யே திவி ।
+யேஷாம் அன்னம் வாதோ வர்ஷம் இஷவஸ்தேப்யோ தச ப்ராசீர்தச ।
+தக்ஷிணா தச ப்ரதீசீர்தசோதீசீர்தசோர்த்வாஸ்தேப்யோ நமஃ ॥`,
+      meaning:"Salutations to the Rudras who dwell on earth, in the atmosphere, and in the heavens. To those whose food is wind and rain — salutations in all ten directions: east, south, west, north, and upward, ten in each direction. Salutations to all of them." },
+
+    { title:"நமகம் — அனுவாகம் 4 | Anuvāka 4", badge:"badge-namakam",
+      text:`நமோ வாதாய நிவாதாய சாந்தாய திவியம் மனஸே ।
+ஜ்யேஷ்டாய சேஷ்டாய நமோ நமோ நமஃ ॥
+
+நமோ ருத்ராய ஸ்தாவரஸ்தாவராய சர்வாய நமோ நமஃ ।
+நமஃ சோமாய ச ருத்ராய ச நமஸ்தாம்ராய சாருணாய ச ॥`,
+      meaning:"Salutations to the one who blows as wind and as calm, to the one with a divine mind. Salutations to the eldest and most excellent. Salutations to Rudra, the stable and the moving, the all-pervading. Salutations to Soma and Rudra, to the copper-colored and the rosy-hued one." },
+
+    { title:"நமகம் — அனுவாகம் 5 | Anuvāka 5", badge:"badge-namakam",
+      text:`நமோ ஜ்யேஷ்டாய சனிஷ்டாய நமஃ ।
+நமஃ பூர்வஜாய அபரஜாய நமஃ ।
+நமோ மத்யமாய நமோ ஜகன்யாய ।
+நமோ தேவாய ஆதிஷ்டாய நமோ விகுண்டாய நமஃ ॥`,
+      meaning:"Salutations to the greatest and the subtlest. Salutations to the firstborn and the later-born. Salutations to the middle one and to the last-born. Salutations to the divine one who stands supreme, and to Vikuntha — salutations." },
+
+    { title:"நமகம் — அனுவாகம் 6 | Anuvāka 6", badge:"badge-namakam",
+      text:`நமோ ஹரிதவே நமஸ் தாரகாய நமஃ ।
+நமோ நீலக்ரீவாய சஹஸ்ரக்ஷாய நமஃ ।
+நமோ கிரிசாய ச சிபிவிஷ்டாய ச ।
+நமோ மீடுஷ்டமாய சேஷுதிமதே நமஃ ॥`,
+      meaning:"Salutations to the green-hued deliverer. Salutations to the blue-throated one with a thousand eyes. Salutations to the lord of mountains and to the one who entered the sacrificial post. Salutations to the most bountiful one holding the quiver." },
+
+    { title:"நமகம் — அனுவாகம் 7 | Anuvāka 7", badge:"badge-namakam",
+      text:`நமஸ் சோமாய ச ருத்ராய ச நமஃ ।
+நமஸ் தாம்ராய சாருணாய ச நமஃ ।
+நமஃ சங்காய ச பஸுபதயே ச நமஃ ।
+நமோ நீலக்ரீவாய சசிரஸ்னவே ச நமஃ ॥`,
+      meaning:"Salutations to Soma and Rudra. Salutations to the copper-colored and the rosy-hued. Salutations to the benevolent Shankara and Pashupati, lord of animals. Salutations to the blue-throated one who wears the moon in his hair." },
+
+    { title:"நமகம் — அனுவாகம் 8 | Anuvāka 8", badge:"badge-namakam",
+      text:`நம இஷுமதே திஷ்ணவ்யாயச நமஃ ।
+நமோ ஸ்வாயுதாய சுதன்வனே ச நமஃ ।
+நமஃ ஸ்ருத்யாய ச பத்யாய ச நமஃ ।
+நமஃ காட்யாய சனிவேஷ்ப்யாய ச நமஃ ॥`,
+      meaning:"Salutations to the bearer of arrows and possessor of sharp weapons. Salutations to the one with beautiful weapons and a splendid bow. Salutations to the one on the path and the highway. Salutations to those in the forests and in the settlements." },
+
+    { title:"நமகம் — அனுவாகம் 9 | Anuvāka 9", badge:"badge-namakam",
+      text:`நமோ ஹிரண்யாய நம இஷுமதே நமஃ ।
+நமஃ தனுஷே சதார்ணவாய ச நமஃ ।
+நமஃ பகவதே ருத்ராய நமஃ ।
+நம ஆஸுஷேணாய ஸுரதாய ச நமஃ ॥`,
+      meaning:"Salutations to the golden one, to the bearer of arrows. Salutations to the bow-bearer and to the ocean-like one. Salutations to the blessed Rudra. Salutations to the one with swift armies and to the one of noble disposition." },
+
+    { title:"நமகம் — அனுவாகம் 10 | Anuvāka 10", badge:"badge-namakam",
+      text:`நம ஆசவே ஸமக்ராய ச நமஃ ।
+நம ஆயுதாய தீக்ஷ்ணதன்வனே ச நமஃ ।
+நமோ ஹ்ரஸ்வாய வாமனாய ச நமஃ ।
+நமோ ப்ரஹதே வார்ஷீயஸே ச நமஃ ॥`,
+      meaning:"Salutations to the swift and the universal. Salutations to the weapon-bearer and the sharp-bowed one. Salutations to the short and the dwarf form. Salutations to the vast and the most excellent." },
+
+    { title:"நமகம் — அனுவாகம் 11 | Anuvāka 11 (Upasaṃhāra)", badge:"badge-namakam",
+      text:`நமோ ரூபேப்யோ ரூபபதயே ச நமஃ ।
+நம ஓஷதீப்யஃ ஓஷதீபதயே ச நமஃ ।
+நமோ வனஸ்பதிப்யோ வனஸ்பதிபதயே ச நமஃ ।
+நமோ ஹரிகேஷாய ஸர்வப்ரேப்யோ நமஃ ஓம் ॥
+
+ஈசாய நமஃ சிவாய நமஃ சங்கராய நமஃ
+மஹேசாய நமஃ மஹாதேவாய நமஃ ॥`,
+      meaning:"Salutations to all forms and to the lord of forms. Salutations to the herbs and their lord. Salutations to the trees and their lord. Salutations to golden-locked Harikesa, and to all beings — Om! Salutations to Isha, Shiva, Shankara, Mahesha, and Mahadeva." }
+  ],
+
+  chamakam: [
+    { title:"சமகம் — அனுவாகம் 1 | Anuvāka 1", badge:"badge-chamakam",
+      text:`அக்னே நய சுபதா ராயே அஸ்மான்
+விஷ்வானி தேவ வயுநானி வித்வான் ।
+யுயோத்யஸ்மஜ்ஜுஹுராணமேனோ
+பூயிஷ்டாம் தே நம உக்திம் விதேம ॥
+
+அ ச மே அகாரச்ச மே நாம ச மே
+யஸச்ச மே தனம் ச மே ல்ராத்திஸ்ச மே ।
+ப்ரியம் ச மேணுகாமஸ்ச மே
+காமஸ்ச மே சௌமனஸஸ்ச மே ॥`,
+      meaning:"O Agni, lead us on the good path to prosperity. O God who knows all actions, remove crooked sin from us. We offer the most abundant salutation-hymn. May welfare, the ability to obtain, name, fame, wealth, prosperity, the dear, desire, and goodwill all be mine." },
+
+    { title:"சமகம் — அனுவாகம் 2 | Anuvāka 2", badge:"badge-chamakam",
+      text:`சம் ச மே மயஸ்ச மே ப்ரியம் ச மேணுகாமஸ்ச மே ।
+காமஸ்ச மே சௌமனஸஸ்ச மே ।
+போகஸ்ச மே ரதிஸ்ச மே மன்மஸ்ச மே ।
+வேதம் ச மே ஸ்வஸ்ச மே ஸ்யோனம் ச மே ॥`,
+      meaning:"May bliss and delight be mine. May the dear and the desired be mine. May desire and goodwill be mine. May enjoyment, satisfaction, and love be mine. May I obtain Vedic knowledge, welfare, and comfort." },
+
+    { title:"சமகம் — அனுவாகம் 3 | Anuvāka 3 (Odd Numbers)", badge:"badge-chamakam",
+      text:`ஏகா ச மே திஸ்ரஸ்ச மே பஞ்ச ச மே ।
+சப்த ச மே நவ ச மே ।
+ஏகாதஸ ச மே திரயோதஸ ச மே ।
+பஞ்சதஸ ச மே ஸப்ததஸ ச மே ।
+நவதஸ ச மே ஏகவிம்ஸதிஸ்ச மே ॥`,
+      meaning:"May one, three, five, seven, nine, eleven, thirteen, fifteen, seventeen, nineteen, and twenty-one be mine. These ascending odd numbers represent the mounting forces of Vedic sacrifice and the boons sought from Rudra." },
+
+    { title:"சமகம் — அனுவாகம் 4 | Anuvāka 4", badge:"badge-chamakam",
+      text:`ஆஜ்யம் ச மே கவ்யம் ச மே ஹவீம்ஷி ச மே ।
+அன்னம் ச மேகம் ச மே கீர்திஸ்ச மே ।
+ஸ்ரீஸ்ச மே ஸ்ரயஸ்ச மே விஸ்ருதிஸ்ச மே ।
+ஸ்ரேயஸ்ச மே வஸ்யஸ்ச மே ஆதிபத்யம் ச மே ॥`,
+      meaning:"May ghee, cow products, and oblations be mine. May food, water, and glory be mine. May Shri (prosperity), excellent fortune, and renown be mine. May the best, excellent wealth, and sovereignty be mine." },
+
+    { title:"சமகம் — அனுவாகம் 5 | Anuvāka 5", badge:"badge-chamakam",
+      text:`யஜ்ஞேன கல்பந்தாம் ।
+ப்ரஜயா ச மே நாரியா ச மே ।
+ரயிஸ்ச மே ரயிஸ்பதிஸ்ச மே ।
+கனம் ச மே ஸ்வர்கஸ்ச மே ஜீவாதுஸ்ச மே ॥`,
+      meaning:"May these come to me through sacrifice. May progeny and wife be mine. May wealth and the lord of wealth be mine. May treasure, heaven, and a long life be mine." },
+
+    { title:"சமகம் — அனுவாகம் 6 | Anuvāka 6", badge:"badge-chamakam",
+      text:`தீர்கமாயுஸ்ச மே அனாமயம் ச மே ।
+ஆரோக்யம் ச மே ஆயுஸ்ச மே ।
+ஜரா ச மேஆதிஸ்ச மே ।
+ஸம்பத்ஸ்ச மே ஸம்விந்னஸ்ச மே ॥`,
+      meaning:"May long life and freedom from disease be mine. May good health and longevity be mine. May peaceful old age and blessings be mine. May prosperity and happiness be mine." },
+
+    { title:"சமகம் — அனுவாகம் 7 | Anuvāka 7", badge:"badge-chamakam",
+      text:`சக்ஷுஸ்ச மே ஸ்ரோத்ரம் ச மே ।
+மனஸ்ச மே வாக்ச மே ।
+ஆத்மா ச மே யஜ்ஞேன கல்பந்தாம் ।
+ப்ராணஸ்ச மே அபானஸ்ச மே வ்யானஸ்ச மே ॥`,
+      meaning:"May sight and hearing be mine. May mind and speech be mine. May the Self be mine — may these be perfected through sacrifice. May prana (in-breath), apana (out-breath), and vyana (pervading breath) be mine." },
+
+    { title:"சமகம் — அனுவாகம் 8 | Anuvāka 8", badge:"badge-chamakam",
+      text:`அஷ்டௌ ஸோமஸ்யாஹீன்ய் அஷ்ட அஹீன்ய் ।
+ஏகாதஸ திரஸ்ரஃ ஸ்வர்கஸ்ய லோகஸ்ய ।
+தாவதீஸ்ச மே ஆஸீர்வாதாஸ்ச மே ப்ரவர்க்யாஸ்ச மே ॥`,
+      meaning:"Eight are the Soma days, eight days of fasting, eleven the three worlds of heaven. May abundant blessings and the initiatory rites of the Pravargya be mine." },
+
+    { title:"சமகம் — அனுவாகம் 9 | Anuvāka 9", badge:"badge-chamakam",
+      text:`ஓஜஸ்ச மே ஸஹஸ்ச மே ।
+பலம் ச மே ஸேதுஸ்ச மே ।
+ஸேதுஸ்தர்தீ மம கல்பந்தாம் யஜ்ஞேன ।
+விஸ்வஜித்ஸ்ச மே ப்ரைதாவத்ஸ்ச மே ॥`,
+      meaning:"May vigor and strength be mine. May power and the bridge be mine. May the bridge-crosser — guide across samsara — come to me through sacrifice. May the all-conquering and the bountiful be mine." },
+
+    { title:"சமகம் — அனுவாகம் 10 | Anuvāka 10", badge:"badge-chamakam",
+      text:`வ்ருத்திஸ்ச மே ஸம்ருத்திஸ்ச மே ।
+ஸ்ருத்திஸ்ச மே க்ருத்திஸ்ச மே ।
+ஸர்வம் ச மே ஸர்வத்வம் ச மே ।
+ஸர்வாகமஸ்ச மே ஸர்வாயுஸ்ச மே ॥`,
+      meaning:"May growth and prosperity be mine. May renown and skill be mine. May everything and the state of completeness be mine. May all knowledge and complete longevity be mine." },
+
+    { title:"சமகம் — அனுவாகம் 11 | Anuvāka 11 (Upasaṃhāra)", badge:"badge-chamakam",
+      text:`இதம் விஷ்ணுர்விசக்ரமே திரேத சகதமாஸத் ।
+ஸமூஹமஸ்ய பாம்ஸுரே ।
+
+யஸ்ய த்ரயோ விக்ரமணேஷ்வபிஹிதம் மது ।
+ஸ தேவானாம் பரமம் ஸகா ஸதத் ப்ரிய ஆசிஷஹ் ॥
+
+ஓம் சாந்திஃ சாந்திஃ சாந்திஃ ॥`,
+      meaning:"Vishnu stepped over this universe thrice, establishing his footprints on this dusty earth. In whose three strides honey (bliss) is contained — he is the highest companion of the gods, always dear to their blessings. Om Peace, Peace, Peace." }
+  ],
+
+  shata_rudriya: [
+    { title:"சதருத்ரீய — பாகம் 1 | Śatarudrīya Part 1 (Names 1–20)", badge:"badge-shata",
+      text:`நமஃ சம்பவாய ச மயோபவாய ச ।
+நமஃ சங்கராய ச மயஸ்கராய ச ।
+நமஃ சிவாய ச சிவதராய ச ॥
+
+நமஸ்தீர்த்யாய ச குல்யாய ச ।
+நமஃ பார்யாய ச பாரியாய ச ।
+நமஃ ப்ரதரணாய சோத்தரணாய ச ॥`,
+      meaning:"Salutations to Shambhava (the auspicious) and Mayobhava (the source of joy). Salutations to Shankara (the doer of good) and Mayaskara (the giver of bliss). Salutations to Shiva (the auspicious) and Shivatarana (the supremely auspicious). Salutations to those at river crossings, canals, at river banks, and at the edges of rivers, and to those who help one cross over and go beyond." },
+
+    { title:"சதருத்ரீய — பாகம் 2 | Śatarudrīya Part 2 (Names 21–40)", badge:"badge-shata",
+      text:`நமோ ஜ்யேஷ்டாய சனிஷ்டாய நமஃ ।
+நமஃ கனீயஸே ச க்ஷயிணே ச ।
+நமஃ க்ஷுத்ராய ச ஸந்தனிகாய ச ।
+நமோ நீலக்ரீவாய சசிரஸ்னவே ॥
+
+நம ஆத்யாய ச ப்ரத்யாய ச ।
+நமோ விஷ்வாஹி னாய சானூப்யாய ச ।
+நமோ மேகயாய ச விதுத்யாய ச ॥`,
+      meaning:"Salutations to the greatest, the subtlest, and the lesser. Salutations to the small one and the nourishing one. Salutations to the blue-throated and moon-crested one. Salutations to the ancient and the responsive one. Salutations to the one pervading all and dwelling near waters. Salutations to the one in clouds and in lightning." },
+
+    { title:"சதருத்ரீய — பாகம் 3 | Śatarudrīya Part 3 (Names 41–60)", badge:"badge-shata",
+      text:`நமோ வர்ஷியஸே ச வர்ஷிஷ்டாய ச ।
+நமோ மேகாய ச சோகாய ச ।
+நம உர்வ்யாய ச ஸூர்மியாய ச ।
+நமஃ பர்ஜன்யாய ச ஹரித்வதே ச ॥
+
+நமோ ஹரிகேஷாய ஸர்வ நேதவே ।
+நமஃ பவாய ச ருத்ராய ச ।
+நமஃ சர்வாய ச பசுபதயே ச ॥`,
+      meaning:"Salutations to the great and the greatest. Salutations to the cloud and to sorrow-remover. Salutations to the broad one and to the swift-moving. Salutations to Parjanya (the rain-cloud) and to the green-hued one. Salutations to golden-locked Harikesa, guide of all. Salutations to Bhava and Rudra. Salutations to Sarva and Pashupati." },
+
+    { title:"சதருத்ரீய — பாகம் 4 | Śatarudrīya Part 4 (Names 61–80)", badge:"badge-shata",
+      text:`நமோ உக்ராய ச பீமாய ச ।
+நமோ அகோராய சதோராகோராய ச ।
+நம ஸிவாய ச சிவதராய ச ।
+நமஸ்தீவ்ராய ச தீவ்ரதராய ச ॥
+
+நமோ த்ருவாய ச தருணாய ச ।
+நமஃ ஸ்தாணவே ச கனீயஸே ச ।
+நம உக்ரேப்யோ வீரேப்யோ நமஃ ॥`,
+      meaning:"Salutations to the fierce and the terrible. Salutations to the non-terrible and the most non-terrible (benign). Salutations to Shiva and the supremely auspicious. Salutations to the intense and the most intense. Salutations to the fixed and the young. Salutations to the pillar-like and the fine. Salutations to the fierce ones and the heroic ones." },
+
+    { title:"சதருத்ரீய — பாகம் 5 | Śatarudrīya Part 5 (Names 81–100)", badge:"badge-shata",
+      text:`நமோ ஜ்யேஷ்டாய ஷ்ரேஷ்டாய ச ।
+நம ஆதிதியோதயே ந்யகரோதாய ச ।
+நமஃ ஸஹமாநாய நிவ்யாதிந ஆவ்யாதிநே ।
+நமஃ ககுப்பியாய நிஷங்கிணே நமஃ ॥
+
+நம இஷுத்மதே தேஜஸ்வதே நமஃ ।
+நமோ நிஷாதேப்யஃ புஞ்ஜிஷ்டேப்யோ நமஃ ।
+நமோ அவ்யாதிநீப்யஃ ஸ்ரீகரீப்யோ நமஃ ॥
+
+ஓம் சாந்திஃ சாந்திஃ சாந்திஃ ॥`,
+      meaning:"Salutations to the eldest and the most excellent. Salutations to those who shine like the rising sun and to those who humble the proud. Salutations to the forbearing one, to the vanquisher, and to the dispeller of afflictions. Salutations to those who occupy prominent positions and carry quivers. Salutations to the arrow-bearer and the resplendent. Salutations to those in the wilderness, to the boon-givers, and to those who bring welfare. Om Peace, Peace, Peace." }
+  ],
+
+  rudra_ashtadhyayi: [
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 1 | Aṣṭādhyāyī Chapter 1", badge:"badge-ashta",
+      text:`ஓம் தத் ஸவிதுர்வரேண்யம் பர்கோ தேவஸ்ய தீமஹி ।
+தியோ யோ நஃ ப்ரசோதயாத் ॥
+
+ஓம் நமோ பகவதே ருத்ராய ।
+நமஸ்தே ருத்ர மன்யவே உதோத இஷவே நமஃ ।
+யா தே ருத்ர சிவா தனூஃ சிவா விஸ்வாஹ பேஷஜீ ।
+சிவா ருத்ரஸ்ய பேஷஜீ தயா நோ மிருட ஜீவஸே ॥`,
+      meaning:"Om, let us meditate on the glorious light of the divine Savitar, who may he inspire our thoughts. Om salutations to the blessed Rudra. Salutations to your wrath, O Rudra, and to your arrows. May your auspicious form which is the healer of all, the healing medicine of Rudra — by that heal us and grant us life." },
+
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 2 | Aṣṭādhyāyī Chapter 2", badge:"badge-ashta",
+      text:`இமாம் ருத்ராய தவஸே கபர்தினே க்ஷயத்வீராய ப்ரபரீம பவஸ்யா ।
+யதா சம்ஸத் த்விபதே சதுஷ்படே விஸ்வம் புஷ்டம் க்ராமே அஸ்மின்னனாதுரம் ॥
+
+மேட்ஹுஷ்டமாய அஸிஷ்டாய ஸ்ரேஷ்டாய ஸர்வஸ்ய ருத்ராய ।
+ததி பேஷஜம் ஸுபேஷஜம் யத் ருத்ரஸ்ய ஹஸ்தயோஃ ॥`,
+      meaning:"We offer this prayer to fierce, matted-haired Rudra, so that all bipeds and quadrupeds in this village may be free from disease and may thrive. To the most bountiful, the most excellent, the best of all — to Rudra — may we receive the healing medicine held in Rudra's hands." },
+
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 3 | Aṣṭādhyāyī Chapter 3", badge:"badge-ashta",
+      text:`யே தே ஸஹஸ்ரம் ஹேதயோ அந்யம் அஸ்மன்னிவபந்து தாஃ ।
+அந்யதே அஸ்மத் விவ்ருஹீ ஸஹஸ்ரம் யே தே ஹேதயஃ ॥
+
+நீலக்ரீவ சிதிகண்ட சிதிகண்ட ஸஹஸ்ரக்ஷ ।
+கபர்தின் யோ ஷு தே சாரு ஹஸ்த கிரிசந்த நமஃ ॥`,
+      meaning:"O Rudra, let your thousand weapons strike another, not us. Reveal your thousand other weapons elsewhere, not at us. O blue-throated, pale-necked, thousand-eyed, matted-haired one — whose hands are gracious, O Lord of the mountains — salutations." },
+
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 4 | Aṣṭādhyāyī Chapter 4", badge:"badge-ashta",
+      text:`நமோ ஹிரண்யபாஹவே ஹிரண்யவர்ணாய ஹிரண்யரூபாய ஹிரண்யபதயே ।
+அம்பிகாபதயே உமாபதயே பசுபதயே நமோ நமஃ ॥
+
+ஸத்யோஜாதம் ப்ரபத்யாமி ஸத்யோஜாதாய வை நமஃ ।
+பவே பவே நாதி பவே பவஸ்வ மாம் ।
+பவோத்பவாய நமஃ ॥`,
+      meaning:"Salutations to the golden-armed, golden-complexioned, golden-formed, and lord of gold. Salutations to the lord of Ambika, lord of Uma, lord of animals — salutations, salutations. I take refuge in Sadyojata (the immediately born). Salutations to Sadyojata. May you be the birth in every birth, may you be my refuge. Salutations to the source of all existence." },
+
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 5 | Aṣṭādhyāyī Chapter 5 (Pañcabrahma)", badge:"badge-ashta",
+      text:`வாமதேவாய நமோ ஜ்யேஷ்டாய நமஃ ஸ்ரேஷ்டாய நமோ ருத்ராய நமஃ ।
+காலாய நமஃ கல விகரணாய நமோ பல விகரணாய நமஃ ।
+பலாய நமோ பல ப்ரமதனாய நமஃ ஸர்வபூதத மனாய நமோ ।
+மனோன்மனாய நமஃ ॥`,
+      meaning:"Salutations to Vamadeva. Salutations to the eldest, the most excellent, to Rudra. Salutations to Kala (Time), to the transformer of time-parts, to the transformer of powers. Salutations to Power, the destroyer of powers, to the subduer of all beings, and to the one beyond the mind." },
+
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 6 | Aṣṭādhyāyī Chapter 6", badge:"badge-ashta",
+      text:`அகோரேப்யோ தக்ர்ஹோரேப்யோ அகோர கோரேப்யஃ ।
+ஸர்வேப்யஃ ஸர்வ ஸர்வேப்யோ நமஸ்தே அஸ்து ருத்ர ரூபேப்யஃ ॥
+
+தத்புருஷாய வித்மஹே மஹாதேவாய தீமஹி ।
+தன்னோ ருத்ரஃ ப்ரசோதயாத் ॥`,
+      meaning:"Salutations to the non-terrible, to the terrible, to the terribly terrible — to all, to all the all-forms of Rudra, salutations. We know that Tatpurusha (the Supreme Person); we meditate on Mahadeva (the Great God) — may that Rudra inspire and illuminate us." },
+
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 7 | Aṣṭādhyāyī Chapter 7 (Īśāna)", badge:"badge-ashta",
+      text:`ஈசானஃ ஸர்வ வித்யானாமீஸ்வரஃ ஸர்வ பூதானாம் ।
+ப்ரஹ்மாதிபதிர் ப்ரஹ்மணோதிபதிர் ப்ரஹ்மா சிவோ மே அஸ்து ஸதாசிவோம் ॥
+
+நமோ ருத்ராய விஷ்ணவே ம்ருத்யுர்மே பாஹி ।
+ஓம் தத் ஸத் ப்ரஹ்மார்பணமஸ்து ॥`,
+      meaning:"Ishana is the lord of all knowledge, the controller of all beings. He is the supreme lord of Brahma, the supreme lord of Brahman — may that Brahma, Shiva, Sadashiva be auspicious to me, Om. Salutations to Rudra-Vishnu — protect me from death. Om, that is the Truth — let it be an offering to Brahman." },
+
+    { title:"ருத்ர அஷ்டாத்யாயி — அத்யாயம் 8 | Aṣṭādhyāyī Chapter 8 (Mahānyāsa)", badge:"badge-ashta",
+      text:`ஓம் ஹ்ரீம் நமஃ சிவாய ।
+ஓம் ஹ்ரீம் நமஸ்தே அஸ்து பகவன் விஸ்வேஸ்வராய ।
+மஹாதேவாய திரியம்பகாய திரிபுராந்தகாய ।
+த்ரிகாலாக்னிகாலாய காலாக்னிருத்ராய நீலகண்டாய ம்ருத்யுஞ்ஜயாய ॥
+
+ஸர்வேஸ்வராய ஸதாசிவாய ஸ்ரீமன் மஹாதேவாய நமஃ ।
+ஓம் சாந்திஃ சாந்திஃ சாந்திஃ ॥`,
+      meaning:"Om Hrim, salutations to Shiva. Om Hrim, salutations to you, O blessed Vishveshvara. Salutations to Mahadeva, Tryambaka (the three-eyed), the destroyer of Tripura, the fire of the three times, Kalaagnirudra, the blue-throated, and the conqueror of death. Salutations to the lord of all, the eternal Shiva, the blessed Mahadeva. Om Peace, Peace, Peace." }
+  ]
+};
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+let currentSection = 'namakam';
+let currentIndex   = 0;
+let autoInterval   = null;
+
+// ═══════════════════════════════════════════════════════
+//  SECTION SWITCH
+// ═══════════════════════════════════════════════════════
+function switchSection(sec) {
+  currentSection = sec;
+  currentIndex   = 0;
+  stopAuto();
+  document.querySelectorAll('.snav-btn').forEach(b => b.classList.toggle('active', b.dataset.sec === sec));
+  renderSection();
+}
+
+function renderSection() {
+  const main = document.getElementById('main-content');
+  if (currentSection === 'rudra_hierarchy') {
+    main.innerHTML = renderHierarchy();
+  } else if (currentSection === 'maha_mrityunjaya') {
+    main.innerHTML = renderMahaMrityunjaya();
+  } else {
+    renderViewer(main);
+  }
+}
+
+// ═══════════════════════════════════════════════════════
+//  HIERARCHY PANEL
+// ═══════════════════════════════════════════════════════
+function renderHierarchy() {
+  return `
+  <div class="hierarchy-panel">
+    <div class="hier-title">ருத்ர பாராயண படிகள் | Rudra Pārāyaṇa Hierarchy</div>
+    <div class="hier-subtitle">From Sage Satapatha's Mahārnava Karma Vipāka — each level more powerful than the last</div>
+    <div class="tier-grid">
+      <div class="tier-card t1">
+        <div class="tier-num">நிலை 1 | Level 1</div>
+        <h3>ருத்ரம் | Rudram</h3>
+        <div class="tier-sa">ஏக ருத்ரம்</div>
+        <p>Namakam (11 anuvakas) chanted once, followed by Chamakam (11 anuvakas) chanted once. The base unit of Rudra worship.</p>
+        <span class="count-badge">1× Namakam + 1× Chamakam</span>
+      </div>
+      <div class="tier-card t2">
+        <div class="tier-num">நிலை 2 | Level 2</div>
+        <h3>ஏகாதச ருத்ரம் | Ekādaśa Rudram</h3>
+        <div class="tier-sa">உரு ருத்ர ஏகாதசினீ</div>
+        <p>Namakam is chanted 11 times, each round followed by one Anuvaka of Chamakam in sequence (Anuvaka 1 after round 1, Anuvaka 2 after round 2, etc.). Used in Rudra Homam.</p>
+        <span class="count-badge">11× Namakam + full Chamakam (sequential)</span>
+      </div>
+      <div class="tier-card t3">
+        <div class="tier-num">நிலை 3 | Level 3</div>
+        <h3>லகு ருத்ரம் | Laghu Rudram</h3>
+        <div class="tier-sa">லகு ருத்ர</div>
+        <p>Eleven repetitions of Ekadasa Rudram. Performed for health, wealth, and overcoming obstacles. Typically takes 1–2 days with multiple priests.</p>
+        <span class="count-badge">11× Ekādaśa = 121× Namakam</span>
+      </div>
+      <div class="tier-card t4">
+        <div class="tier-num">நிலை 4 | Level 4</div>
+        <h3>மஹா ருத்ரம் | Mahā Rudram</h3>
+        <div class="tier-sa">மஹா ருத்ர</div>
+        <p>Eleven repetitions of Laghu Rudram (1,331 total recitations of Namakam). When accompanied by Abhishekam, Havanam, and Brahmana Bhojana it becomes the Maha Rudra Yagam.</p>
+        <span class="count-badge">11× Laghu = 1,331× Namakam</span>
+      </div>
+      <div class="tier-card t5">
+        <div class="tier-num">நிலை 5 | Level 5</div>
+        <h3>அதி ருத்ரம் | Ati Rudram</h3>
+        <div class="tier-sa">அதி ருத்ர — உத்தம</div>
+        <p>The supreme and ultimate form — eleven Maha Rudrams (14,641 total recitations of Namakam). Performed rarely, lasting several days, with hundreds of Vedic priests. Considered the highest worship of Shiva.</p>
+        <span class="count-badge">11× Mahā = 14,641× Namakam</span>
+      </div>
+    </div>
+    <div class="hier-note">
+      <strong>ஏகம் சத்</strong> — The One Truth is called by many names. All five levels are paths to the same Rudra, 
+      who is <strong>Namakam</strong>'s fierce protector and <strong>Chamakam</strong>'s compassionate bestower of boons.<br/>
+      The Eswara Geetha proclaims: <em>"Vedānāṃ Sāmavedīyam, Yājuṣam Śatarudrīyam"</em> — among the Vedas I am Samaveda; among Yajur hymns I am the Śatarudrīya.
+    </div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+//  MAHA MRITYUNJAYA PANEL
+// ═══════════════════════════════════════════════════════
+function renderMahaMrityunjaya() {
+  return `
+  <div class="info-panel">
+    <div class="info-card purple">
+      <div class="info-header">
+        <div class="info-icon">🔱</div>
+        <div>
+          <h2>மஹா மிருத்யுஞ்ஜய மந்திரம்</h2>
+          <div class="info-sa">Mahā Mṛtyuñjaya Mantra — The Great Death-Conquering Mantra</div>
+          <div class="info-src">ரிக் வேத 7.59.12 · யஜுர் வேத 3.60 · Sri Rudram (Namakam) உள்ளே | Embedded in Sri Rudram</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <div class="mantra-block">ஓம் திரயம்பகம் யஜாமஹே
+ஸுகன்திம் புஷ்டிவர்தனம் ।
+உர்வாருகமிவ பன்தனான்
+ம்ருத்யோர்முக்ஷீய மாம்ருதாத் ॥</div>
+
+      <div class="meaning-section">
+        <div class="meaning-label">🔆 பொருள் | Meaning (Word by Word)</div>
+        <div class="meaning-text">
+          We worship the three-eyed one (Tryambaka = Shiva) who is fragrant and who nourishes all beings.
+          May He liberate us from death like the cucumber (urvāruka) is separated from its vine —
+          and may He not withhold immortality from us.
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>⚗️ சொல் பொருள் | Word-by-Word Breakdown</h3>
+        <div class="verse-grid">
+          <div class="verse-item"><div class="verse-num">1</div><div class="verse-text">திரயம்பகம் (Tryambakam)</div><div class="verse-meaning">The three-eyed one — Shiva</div></div>
+          <div class="verse-item"><div class="verse-num">2</div><div class="verse-text">யஜாமஹே (Yajāmahe)</div><div class="verse-meaning">We worship / offer reverence</div></div>
+          <div class="verse-item"><div class="verse-num">3</div><div class="verse-text">ஸுகன்திம் (Sugandhim)</div><div class="verse-meaning">The fragrant one / sweet-scented</div></div>
+          <div class="verse-item"><div class="verse-num">4</div><div class="verse-text">புஷ்டிவர்தனம் (Puṣṭivardhanam)</div><div class="verse-meaning">The nourisher and increaser of all</div></div>
+          <div class="verse-item"><div class="verse-num">5</div><div class="verse-text">உர்வாருகம் (Urvārukam)</div><div class="verse-meaning">The cucumber (bound to its vine)</div></div>
+          <div class="verse-item"><div class="verse-num">6</div><div class="verse-text">இவ பன்தனாத் (iva bandhanāt)</div><div class="verse-meaning">Like from its bondage / stalk</div></div>
+          <div class="verse-item"><div class="verse-num">7</div><div class="verse-text">ம்ருத்யோர் முக்ஷீய (Mṛtyormukṣīya)</div><div class="verse-meaning">May I be released from death</div></div>
+          <div class="verse-item"><div class="verse-num">8</div><div class="verse-text">மாம்ருதாத் (Māmṛtāt)</div><div class="verse-meaning">Not separated from immortality (amṛta)</div></div>
+        </div>
+      </div>
+
+      <div class="sub-section">
+        <h3>✨ சிறப்பு | Significance</h3>
+        <div class="meaning-text" style="font-style:normal;">
+          The Maha Mrityunjaya is one of the most potent mantras in all the Vedas. It appears as verse 7.59.12 of the Rigveda, verse 3.60 of the Yajurveda, and is embedded within the Namakam of Sri Rudram. It is also known as the <strong style="color:var(--gold)">Tryambaka Mantra</strong> and <strong style="color:var(--gold)">Mrityunjaya Mantra</strong>. The mantra invokes Shiva as the destroyer of death itself — chanting it 108 times is a complete cycle; 1,008 times constitutes a Japa Mala parayana; and 125,000 recitations constitute the Maha Mrityunjaya Homa.
+        </div>
+      </div>
+
+      <div class="card-actions">
+        <button class="action-btn" onclick="copyMM()">📋 மந்திரத்தை நகல் செய்</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function copyMM() {
+  const text = `ஓம் திரயம்பகம் யஜாமஹே\nஸுகன்திம் புஷ்டிவர்தனம் ।\nஉர்வாருகமிவ பன்தனான்\nம்ருத்யோர்முக்ஷீய மாம்ருதாத் ॥`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.card-actions .action-btn');
+    if(btn){ btn.textContent = '✅ நகல் ஆனது'; setTimeout(()=>{ btn.textContent='📋 மந்திரத்தை நகல் செய்'; },2000); }
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  SHLOKA VIEWER
+// ═══════════════════════════════════════════════════════
+function renderViewer(main) {
+  const data  = DATA[currentSection];
+  const item  = data[currentIndex];
+  const total = data.length;
+
+  const sectionLabels = {
+    namakam:          ['அனுவாகம்','Anuvāka'],
+    chamakam:         ['அனுவாகம்','Anuvāka'],
+    shata_rudriya:    ['பாகம்','Part'],
+    rudra_ashtadhyayi:['அத்யாயம்','Chapter']
+  };
+  const [tamil, eng] = sectionLabels[currentSection] || ['பாகம்','Part'];
+
+  const dots = data.map((_,i) =>
+    `<div class="dot${i===currentIndex?' active':''}" title="${tamil} ${i+1}" onclick="goTo(${i})"></div>`
+  ).join('');
+
+  main.innerHTML = `
+    <div class="viewer-wrap">
+      <div class="anuvaka-label" id="anuvaka-label">${tamil} ${currentIndex+1} | ${eng} ${currentIndex+1}</div>
+      <div class="progress-text">${currentIndex+1} / ${total} ${tamil}கள்</div>
+      <div class="shloka-card" id="shloka-card">
+        <div class="shloka-number-badge ${item.badge}">${tamil} ${currentIndex+1}</div>
+        <div class="shloka-title">${item.title}</div>
+        <div class="shloka-text" id="shloka-text">${item.text}</div>
+        <div class="meaning-section">
+          <div class="meaning-label">🔆 பொருள் | Meaning</div>
+          <div class="meaning-text" id="meaning-text">${item.meaning}</div>
+        </div>
+        <div class="card-actions">
+          <button class="action-btn ${autoInterval?'active':''}" id="auto-btn" onclick="toggleAuto()">
+            ${autoInterval?'⏹ நிறுத்து':'▶️ தானாக படிக்கவும்'}
+          </button>
+          <button class="action-btn" onclick="copyText()">📋 நகல் செய்</button>
+        </div>
+      </div>
+      <div class="nav-area">
+        <button class="nav-btn" id="prev-btn" onclick="navigate(-1)" ${currentIndex===0?'disabled':''}>← முந்தைய</button>
+        <div class="dots-area">${dots}</div>
+        <button class="nav-btn" id="next-btn" onclick="navigate(1)" ${currentIndex===total-1?'disabled':''}>அடுத்த →</button>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════
+function navigate(dir) {
+  const data = DATA[currentSection];
+  const next = currentIndex + dir;
+  if(next >= 0 && next < data.length) { currentIndex = next; renderSection(); window.scrollTo({top:0,behavior:'smooth'}); }
+}
+function goTo(i) { currentIndex = i; renderSection(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+// ═══════════════════════════════════════════════════════
+//  AUTO-READ
+// ═══════════════════════════════════════════════════════
+function toggleAuto() { autoInterval ? stopAuto() : startAuto(); }
+function startAuto() {
+  autoInterval = setInterval(() => {
+    const data = DATA[currentSection];
+    if(currentIndex < data.length - 1) { currentIndex++; renderSection(); }
+    else stopAuto();
+  }, 8000);
+  renderSection();
+}
+function stopAuto() { clearInterval(autoInterval); autoInterval = null; renderSection(); }
+
+// ═══════════════════════════════════════════════════════
+//  COPY
+// ═══════════════════════════════════════════════════════
+function copyText() {
+  const el = document.getElementById('shloka-text');
+  if(!el) return;
+  navigator.clipboard.writeText(el.textContent).then(() => {
+    const btns = document.querySelectorAll('.card-actions .action-btn');
+    const btn = btns[btns.length-1];
+    if(btn){ btn.textContent='✅ நகல் ஆனது'; setTimeout(()=>{ btn.textContent='📋 நகல் செய்'; },2000); }
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════
+renderSection();
+</script>
+</body>
+</html>
