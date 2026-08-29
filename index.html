@@ -52,6 +52,26 @@
       pointer-events: none; z-index: 0;
     }
 
+    .page-topbar {
+      position: relative; z-index: 2;
+      padding: 1rem 1.25rem 0;
+    }
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-family: 'Noto Serif Tamil', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .home-link:hover {
+      opacity: 0.9;
+      transform: translateX(-2px);
+    }
+
     /* ── HEADER ── */
     header {
       position: relative; z-index: 1;
@@ -286,6 +306,10 @@
   </style>
 </head>
 <body>
+
+<div class="page-topbar">
+  <a href="index.html" class="home-link">← Vedic Corner Home</a>
+</div>
 
 <header>
   <span class="trishul">𑁍</span>
